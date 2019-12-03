@@ -10,8 +10,8 @@ public class LongestPalindrome {
     public static void main(String[] args) {
         String s="bb";
         System.out.println(longestPlaindromeByCenterExpand(s));
-//        System.out.println(longestPalindromeBylongestCommonSubString(s));
-//        System.out.println(forcelongestPalindrome("zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz"));
+        System.out.println(longestPalindromeBylongestCommonSubString(s));
+        System.out.println(forcelongestPalindrome(s));
     }
 
     //中心扩展法   8ms   36.5MB
@@ -42,7 +42,7 @@ public class LongestPalindrome {
      * @param right
      * @return 以i下标字符为中心的最长回文子串长度
      */
-    public static int expandAroundCenter(String s,int left,int right) {
+    private static int expandAroundCenter(String s,int left,int right) {
         int L=left,R=right;
         while (L >= 0 && R < s.length() && s.charAt(L) == s.charAt(R)) {//如果相等则继续扩展
             L--;
@@ -120,7 +120,7 @@ public class LongestPalindrome {
     }
 
     //判断是否为回文串
-    public static boolean judge(String s){
+    private static boolean judge(String s){
         int len=s.length();
         for(int i=0;i<len/2;i++){
             if(s.charAt(i)!=s.charAt(len-i-1)){
